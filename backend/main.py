@@ -6,6 +6,7 @@ Run: uvicorn main:app --reload
 
 from __future__ import annotations
 
+import os
 from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING
 
@@ -41,10 +42,14 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — allow any origin in dev; tighten in production
+# CORS — reads from ALLOWED_ORIGINS env var in production
+# Dev default: localhost origins
+_origins_env = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")
+ALLOWED_ORIGINS = [o.strip() for o in _origins_env.split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
