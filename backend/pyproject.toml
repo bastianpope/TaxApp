@@ -6,7 +6,7 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.34.0",
-    "pydantic>=2.10.0",
+    "pydantic[email]>=2.10.0",
     "structlog>=24.4.0",
     "slowapi>=0.1.9",
     # Phase 3: Database + Auth
@@ -19,7 +19,9 @@ dependencies = [
     "pyotp>=2.9",
     "python-multipart>=0.0.12",
     "python-dotenv>=1.0",
+    # Phase 4: PDF export
     "reportlab>=4.0",
+    "pillow>=11.0",
 ]
 
 [project.optional-dependencies]
