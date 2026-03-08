@@ -1,0 +1,55 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.env
+.env.local
+*.env
+
+# ── pytest / coverage ───────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node / Next.js ──────────────────────────────────────
+node_modules/
+.next/
+out/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+
+# ── OS ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ── Editor ──────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ── Docker volumes (local data) ─────────────────────────
+postgres_data/
+
+# ── Alembic auto-generated (keep source, not pycache) ───
+backend/alembic/versions/__pycache__/
+
+# ── Secrets ─────────────────────────────────────────────
+*.pem
+*.key
+*.crt

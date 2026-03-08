@@ -1,0 +1,43 @@
+{
+  "description": "MFJ, $100k combined W-2, MN resident, 2 children",
+  "input": {
+    "tax_year": 2025,
+    "filing_status": "MFJ",
+    "w2s": [
+      {
+        "employer_name": "Corp A",
+        "wages": "60000",
+        "federal_withholding": "7000",
+        "state_withholding": "2000"
+      },
+      {
+        "employer_name": "Corp B",
+        "wages": "40000",
+        "federal_withholding": "5000",
+        "state_withholding": "1500"
+      }
+    ],
+    "dependents": [
+      {"name": "Child A", "age": 8, "relationship": "child"},
+      {"name": "Child B", "age": 5, "relationship": "child"}
+    ],
+    "state_residencies": [
+      {"state_code": "MN"}
+    ]
+  },
+  "expected": {
+    "federal": {
+      "total_income_gte": "100000",
+      "child_tax_credit": "4000"
+    },
+    "states": [
+      {
+        "state_code": "MN",
+        "state_tax_gt": "0"
+      }
+    ],
+    "audit_risk": {
+      "risk_level_in": ["low", "moderate"]
+    }
+  }
+}

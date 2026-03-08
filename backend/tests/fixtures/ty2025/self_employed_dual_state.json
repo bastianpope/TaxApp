@@ -1,0 +1,40 @@
+{
+  "description": "Self-employed, dual state (IL+MN), Schedule C income, high audit risk",
+  "input": {
+    "tax_year": 2025,
+    "filing_status": "SINGLE",
+    "nec_1099s": [
+      {"payer_name": "Client X", "amount": "120000"}
+    ],
+    "schedule_c": {
+      "gross_receipts": "120000",
+      "expenses": {
+        "advertising": "5000",
+        "supplies": "3000",
+        "travel": "8000",
+        "meals": "4000",
+        "other": "2000"
+      },
+      "home_office_sqft": "250",
+      "vehicle_business_miles": "15000"
+    },
+    "state_residencies": [
+      {"state_code": "IL"},
+      {"state_code": "MN"}
+    ]
+  },
+  "expected": {
+    "federal": {
+      "total_income_gte": "80000",
+      "se_tax_gt": "0"
+    },
+    "states_count": 2,
+    "audit_risk": {
+      "overall_score_gte": "5",
+      "risk_level_in": ["low", "moderate", "high"]
+    },
+    "aggressiveness": {
+      "has_recommendations": true
+    }
+  }
+}

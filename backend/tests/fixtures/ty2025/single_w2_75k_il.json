@@ -1,0 +1,39 @@
+{
+  "description": "Single filer, $75k W-2, IL resident — basic scenario",
+  "input": {
+    "tax_year": 2025,
+    "filing_status": "SINGLE",
+    "w2s": [
+      {
+        "employer_name": "Acme Corp",
+        "wages": "75000",
+        "federal_withholding": "11000",
+        "state_withholding": "3000"
+      }
+    ],
+    "state_residencies": [
+      {"state_code": "IL"}
+    ]
+  },
+  "expected": {
+    "federal": {
+      "total_income_gte": "75000",
+      "agi_gte": "75000",
+      "refund_or_owed": "either"
+    },
+    "states": [
+      {
+        "state_code": "IL",
+        "state_tax_gt": "0"
+      }
+    ],
+    "audit_risk": {
+      "risk_level": "low"
+    },
+    "summary_keys": [
+      "total_income", "agi", "federal_taxable_income", "federal_tax",
+      "total_state_tax", "total_tax_burden", "effective_federal_rate",
+      "audit_risk_score", "audit_risk_level"
+    ]
+  }
+}
