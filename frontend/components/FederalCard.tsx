@@ -1,5 +1,5 @@
 import type { FederalResult } from "@/lib/types";
-import { fmtDollar, fmtPct } from "@/lib/utils";
+import { fmtDollar, fmtPctScaled } from "@/lib/utils";
 
 type Props = FederalResult & { grossIncome: number };
 
@@ -50,7 +50,7 @@ export default function FederalCard({
         <p className={`text-3xl font-extrabold ${balanceColor}`}>
           {balance < 0 ? fmtDollar(-balance) : fmtDollar(balance)}
         </p>
-        <p className="text-xs text-slate-500 mt-1">Effective rate: {fmtPct(effective_rate)}</p>
+        <p className="text-xs text-slate-500 mt-1">Effective rate: {fmtPctScaled(effective_rate)}</p>
       </div>
 
       {/* Detail table */}

@@ -76,3 +76,13 @@ export function fmtDollar(n: number): string {
 export function fmtPct(n: number): string {
   return (n * 100).toFixed(1) + "%";
 }
+
+/**
+ * Format a value that is ALREADY a percentage (0–100 scale, e.g. 19.486)
+ * to a display string like "19.5%".
+ * Use this for effective_rate / marginal_rate returned by the /api/calculate endpoint,
+ * which sends them as percent numbers, not 0-1 fractions.
+ */
+export function fmtPctScaled(n: number): string {
+  return n.toFixed(1) + "%";
+}

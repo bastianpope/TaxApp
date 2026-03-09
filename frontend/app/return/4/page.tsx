@@ -75,7 +75,7 @@ export default function Step4Deductions() {
       <div className="card space-y-4">
         <h3 className="font-semibold text-sm text-sky-400">🏠 Home Ownership</h3>
         <NumInput id="mortgage-interest" label="Mortgage Interest (Form 1098 Box 1)" value={mortgageInterest} onChange={setMortgageInterest} />
-        <NumInput id="real-estate-taxes" label="Property Taxes Paid" hint="Deductible up to $10,000 SALT cap" value={realEstateTaxes} onChange={setRealEstateTaxes} />
+        <NumInput id="real-estate-taxes" label="Property Taxes Paid" hint="Deductible up to $40,000 SALT cap (OBBBA 2025)" value={realEstateTaxes} onChange={setRealEstateTaxes} />
       </div>
 
       {/* Charitable */}

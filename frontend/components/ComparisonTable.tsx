@@ -1,5 +1,5 @@
 import type { AllScenarios } from "@/lib/types";
-import { fmtDollar, fmtPct } from "@/lib/utils";
+import { fmtDollar, fmtPctScaled } from "@/lib/utils";
 
 const LABELS = {
   LOW: "🛡️ Conservative",
@@ -47,7 +47,7 @@ export default function ComparisonTable({ scenarios }: { scenarios: AllScenarios
             },
             {
               label: "Effective Rate",
-              vals: keys.map((k) => fmtPct(scenarios[k].federal.effective_rate)),
+              vals: keys.map((k) => fmtPctScaled(scenarios[k].federal.effective_rate)),
             },
             {
               label: "Federal Balance",
